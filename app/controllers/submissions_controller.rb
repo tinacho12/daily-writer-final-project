@@ -27,4 +27,14 @@ class SubmissionsController < ApplicationController
     @list_of_submissions = matching_submissions.order({ :created_at => :desc })
     render({ :template => "submissions/index" })
   end
+
+  def show
+    the_id = params.fetch("path_id")
+
+    matching_submissions = Submission.where({ :id => the_id })
+
+    @the_submission = matching_submissions.at(0)
+
+    render({ :template => "submissions/show" })
+  end
 end

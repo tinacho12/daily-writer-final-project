@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get("/write", { :controller => "submissions", :action => "write" })
   post("/submit", { :controller => "submissions", :action => "submit" })
   get("/submissions", { :controller => "submissions", :action => "index" })
-
+  get("/submissions/:path_id", { :controller => "submissions", :action => "show" })
 
   # Defines the root path route ("/")
   # root "articles#index"

@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Submission #<%= @the_submission.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/submissions">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_submission/<%= @the_submission.id %>">
+          Delete submission
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Body
+      </dt>
+      <dd>
+        <%= @the_submission.body %>
+      </dd>
+
+      <dt>
+        Word count
+      </dt>
+      <dd>
+        <%= @the_submission.word_count %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_submission.writer_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_submission.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_submission.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit submission
+    </h2>
+
+    <form action="/modify_submission/<%= @the_submission.id %>"  method="post" >
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <textarea id="body_box" name="query_body"><%= @the_submission.body %></textarea>
+      </div>
+
+      <div>
+        <label for="word_count_box">
+          Word count
+        </label>
+
+        <input type="text" id="word_count_box" name="query_word_count" value="<%= @the_submission.word_count %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="writer_id" value="<%= @the_submission.writer_id %>">
+      </div>
+
+      <button>
+        Update submission
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
