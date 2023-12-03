@@ -69,10 +69,9 @@
     <form action="/modify_submission/<%= @the_submission.id %>"  method="post" >
       <div>
         <label for="body_box">
-          Body
         </label>
 
-        <textarea id="body_box" name="query_body"><%= @the_submission.body %></textarea>
+        <textarea id="body_box" name="query_body" rows="20" cols="50"><%= @the_submission.body %></textarea>
       </div>
 
       <div>
