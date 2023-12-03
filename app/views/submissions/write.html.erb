@@ -1,0 +1,33 @@
+<div>
+    <h2>
+      Add a new submission
+    </h2>
+
+    <form action="/submit" method="post">
+      <div>
+        <label for="body_box">
+        </label>
+        <textarea id="body_box" name="query_body" rows="10"></textarea>
+      </div>
+
+      <div>
+        <label for="word_count_box">
+          Word count
+        </label>
+
+        <input type="text" id="word_count_box" name="query_word_count">
+      </div>
+
+      <div>
+        <label for="writer_id_box">
+          Writer
+        </label>
+
+        <input type="text" id="writer_id_box" name="writer_id">
+      </div>
+
+      <button>
+        Submit
+      </button>
+    </form>
+</div>
