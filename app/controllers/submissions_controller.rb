@@ -22,6 +22,9 @@ class SubmissionsController < ApplicationController
   end
 
   def index
-    render({ :template => "submissions/home" })
+    matching_submissions = Submission.all
+
+    @list_of_submissions = matching_submissions.order({ :created_at => :desc })
+    render({ :template => "submissions/index" })
   end
 end
