@@ -7,22 +7,20 @@
       <div>
         <label for="body_box">
         </label>
-        <textarea id="body_box" name="query_body" rows="20" cols="50" placeholder="Enter your thoughts here"></textarea>
+        <textarea id="body_box" name="query_body" rows="20" cols="50" placeholder="Enter your thoughts here" oninput="updateWordCount()"></textarea>
       </div>
 
       <div>
         <label for="word_count_box">
           Word count
         </label>
-
-        <input type="text" id="word_count_box" name="query_word_count">
+        <input type="text" id="word_count_box" name="query_word_count" readonly>
       </div>
 
       <div>
         <label for="writer_id_box">
           Writer
         </label>
-
         <input type="text" id="writer_id_box" name="writer_id">
       </div>
 
@@ -30,4 +28,15 @@
         Submit
       </button>
     </form>
+
 </div>
+
+<script>
+    function updateWordCount() {
+        var text = document.getElementById('body_box').value;
+        var words = text.trim().split(/\s+/).filter(function(word) {
+            return word.length > 0;
+        });
+        document.getElementById('word_count_box').value = words.length;
+    }
+</script>

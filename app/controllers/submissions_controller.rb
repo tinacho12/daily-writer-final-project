@@ -10,9 +10,9 @@ class SubmissionsController < ApplicationController
   def submit
     the_submission = Submission.new
     the_submission.body = params.fetch("query_body")
-    the_submission.word_count = params.fetch("query_word_count")
+    the_submission.word_count = calculate_word_count(params.fetch("query_body"))
     the_submission.writer_id = params.fetch("writer_id")
-
+  
     if the_submission.valid?
       the_submission.save
       redirect_to("/submissions", { :notice => "Submission created successfully." })
@@ -20,6 +20,12 @@ class SubmissionsController < ApplicationController
       redirect_to("/submissions", { :alert => the_submission.errors.full_messages.to_sentence })
     end
   end
+  
+  private
+  
+  def calculate_word_count(text)
+    text.split(/\s+/).select { |word| word.length.positive? }.size
+  end  
 
   def index
     matching_submissions = Submission.all
