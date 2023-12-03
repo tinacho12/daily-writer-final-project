@@ -37,7 +37,32 @@ class SubmissionsController < ApplicationController
 
     render({ :template => "submissions/show" })
   end
-  
+
+  def update
+    the_id = params.fetch("path_id")
+    the_submission = Submission.where({ :id => the_id }).at(0)
+
+    the_submission.body = params.fetch("query_body")
+    the_submission.word_count = calculate_word_count(params.fetch("query_body"))
+    the_submission.writer_id = params.fetch("query_user_id")
+
+    if the_submission.valid?
+      the_submission.save
+      redirect_to("/submissions/#{the_submission.id}", { :notice => "Submission updated successfully."} )
+    else
+      redirect_to("/submissions/#{the_submission.id}", { :alert => the_submission.errors.full_messages.to_sentence })
+    end
+  end
+
+  def destroy
+    the_id = params.fetch("path_id")
+    the_submission = Submission.where({ :id => the_id }).at(0)
+
+    the_submission.destroy
+
+    redirect_to("/submissions", { :notice => "Submission deleted successfully."} )
+  end
+
   private
   
   def calculate_word_count(text)
