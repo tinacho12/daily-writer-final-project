@@ -77,18 +77,14 @@
 
       <div>
         <label for="word_count_box">
-          Word count
         </label>
-
-        <input type="text" id="word_count_box" name="query_word_count" value="<%= @the_submission.word_count %>">
+        <input hidden type="text" id="word_count_box" name="query_word_count" value="<%= @the_submission.word_count %>">
       </div>
 
       <div>
         <label for="user_id_box">
-          User
         </label>
-
-        <input type="text" id="user_id_box" name="writer_id" value="<%= @the_submission.writer_id %>">
+        <input hidden type="text" id="user_id_box" name="writer_id" value="<%= @the_submission.writer_id %>">
       </div>
 
       <button>
