@@ -44,7 +44,7 @@ class SubmissionsController < ApplicationController
 
     the_submission.body = params.fetch("query_body")
     the_submission.word_count = calculate_word_count(params.fetch("query_body"))
-    the_submission.writer_id = params.fetch("query_user_id")
+    the_submission.writer_id = params.fetch("writer_id")
 
     if the_submission.valid?
       the_submission.save
