@@ -1,8 +1,10 @@
-X consecutive days
-X total words
+<%= "No. of submissions: #{current_writer.submissions.size}" %>
+
+<% total_word_count = current_writer.submissions.sum(:word_count) %>
+<%= "Total word count: #{total_word_count}" %>
 
 <div id="start_writing">
   <a href="/write" class="button">
-    Start session
+    Start writing
   </a>
 </div>

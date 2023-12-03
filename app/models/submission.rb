@@ -10,4 +10,5 @@
 #  writer_id  :integer
 #
 class Submission < ApplicationRecord
+  belongs_to :writer, required: true, class_name: "Writer", foreign_key: "writer_id", counter_cache: true
 end

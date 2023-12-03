@@ -22,4 +22,7 @@ class Writer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  has_many :submissions, class_name: "Submission", foreign_key: "writer_id", dependent: :destroy
+
 end
