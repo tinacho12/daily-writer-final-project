@@ -21,12 +21,6 @@ class SubmissionsController < ApplicationController
     end
   end
   
-  private
-  
-  def calculate_word_count(text)
-    text.split(/\s+/).select { |word| word.length.positive? }.size
-  end  
-
   def index
     matching_submissions = Submission.all
 
@@ -43,4 +37,11 @@ class SubmissionsController < ApplicationController
 
     render({ :template => "submissions/show" })
   end
+  
+  private
+  
+  def calculate_word_count(text)
+    text.split(/\s+/).select { |word| word.length.positive? }.size
+  end  
+
 end
