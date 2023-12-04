@@ -8,7 +8,6 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  word_count_goal        :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #

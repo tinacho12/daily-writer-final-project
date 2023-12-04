@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_03_210036) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_03_235420) do
   create_table "submissions", force: :cascade do |t|
     t.text "body"
     t.integer "word_count"
@@ -20,7 +20,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_03_210036) do
   end
 
   create_table "writers", force: :cascade do |t|
-    t.integer "word_count_goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
