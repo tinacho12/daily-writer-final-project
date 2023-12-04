@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   get("/write", { :controller => "submissions", :action => "write" })
   post("/submit", { :controller => "submissions", :action => "submit" })
   get("/submissions", { :controller => "submissions", :action => "index" })
+  get("/submissions/:writer_id", { :controller => "submissions", :action => "current_writer_index" })
   get("/submissions/:path_id", { :controller => "submissions", :action => "show" })
+  get("/submissions/:path_id/:writer_id", { :controller => "submissions", :action => "current_writer_show" })
+
   post("/modify_submission/:path_id", { :controller => "submissions", :action => "update" })
   get("/delete_submission/:path_id", { :controller => "submissions", :action => "destroy" })
 

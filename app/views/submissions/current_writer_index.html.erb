@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      All submissions
+      My submissions
     </h1>
   </div>
 </div>
@@ -23,10 +23,6 @@
         </th>
 
         <th>
-          User
-        </th>
-
-        <th>
           Created at
         </th>
 
@@ -38,7 +34,7 @@
         </th>
       </tr>
 
-      <% @list_of_submissions.each do |a_submission| %>
+      <% @current_writer_list_of_submissions.each do |a_submission| %>
       <tr>
         <td>
           <%= a_submission.id %>
@@ -53,10 +49,6 @@
         </td>
 
         <td>
-          <%= a_submission.writer_id %>
-        </td>
-
-        <td>
           <%= time_ago_in_words(a_submission.created_at) %> ago
         </td>
         <td>
@@ -64,7 +56,7 @@
         </td>
 
         <td>
-          <a href="/submissions/<%= a_submission.id %>">
+          <a href="/submissions/<%= a_submission.writer_id%>/<%= a_submission.id %>">
             Show details
           </a>
         </td>

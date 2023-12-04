@@ -1,7 +1,11 @@
-<%= "No. of submissions: #{current_writer.submissions.size}" %>
+<div>
+  <%= "No. of submissions: #{current_writer.submissions.size}" %>
+</div>
 
-<% total_word_count = current_writer.submissions.sum(:word_count) %>
-<%= "Total word count: #{total_word_count}" %>
+<div>
+  <% total_word_count = current_writer.submissions.sum(:word_count) %>
+  <%= "Total word count: #{total_word_count}" %>
+</div>
 
 <div id="start_writing">
   <a href="/write" class="button">
