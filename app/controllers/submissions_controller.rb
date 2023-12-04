@@ -77,7 +77,7 @@ class SubmissionsController < ApplicationController
 
     the_submission.destroy
 
-    redirect_to("/submissions", { :notice => "Submission deleted successfully."} )
+    redirect_to("/submissions/", { :notice => "Submission deleted successfully."} )
   end
 
   private

@@ -1,14 +1,20 @@
-<div>
-  <%= "No. of submissions: #{current_writer.submissions.size}" %>
-</div>
+<% if current_writer != nil %>
+  <div>
+    <%= "No. of submissions: #{current_writer.submissions.size}" %>
+  </div>
 
-<div>
-  <% total_word_count = current_writer.submissions.sum(:word_count) %>
-  <%= "Total word count: #{total_word_count}" %>
-</div>
+  <div>
+    <% total_word_count = current_writer.submissions.sum(:word_count) %>
+    <%= "Total word count: #{total_word_count}" %>
+  </div>
 
-<div id="start_writing">
-  <a href="/write" class="button">
-    Start writing
-  </a>
-</div>
+  <div id="start_writing">
+    <a href="/write" class="button">
+      Start writing
+    </a>
+  </div>
+
+<% else %>
+  Welcome to the homepage!
+
+<% end %>
