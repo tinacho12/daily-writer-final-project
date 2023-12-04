@@ -15,30 +15,24 @@ class SubmissionsController < ApplicationController
   
     if the_submission.valid?
       the_submission.save
-      redirect_to("/submissions/#{the_submission.writer_id}", { :notice => "Submission created successfully." })
+      redirect_to("/submissions", { :notice => "Submission created successfully." })
     else
       redirect_to("/404", { :alert => the_submission.errors.full_messages.to_sentence })
     end
   end
   
   def index
-    matching_submissions = Submission.all
-
-    @list_of_submissions = matching_submissions.order({ :created_at => :desc })
-    render({ :template => "submissions/index" })
-  end
-
-  def current_writer_index
     matching_submissions = Submission.where({ :writer_id => current_writer.id })
 
-    @current_writer_list_of_submissions = matching_submissions.order({ :created_at => :desc })
-    render({ :template => "submissions/current_writer_index" })
+    @list_of_submissions = matching_submissions.order({ :created_at => :desc })
+
+    render({ :template => "submissions/index" })
   end
 
   def show
     the_id = params.fetch("path_id")
 
-    matching_submissions = Submission.where({ :id => the_id })
+    matching_submissions = Submission.where({ :id => the_id, :writer_id => current_writer.id })
 
     @the_submission = matching_submissions.at(0)
 
